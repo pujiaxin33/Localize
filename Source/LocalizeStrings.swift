@@ -93,6 +93,15 @@ class LocalizeStrings: LocalizeCommonProtocol {
 
             if localized != key {
                 return localized
+            }else {
+                let otherValue = "这是一个测试key对应的value是否存在文本"
+                let otherLocalized = bundle.localizedString(forKey: key, value: otherValue, table: tableName)
+                if otherLocalized == otherValue {
+                    //返回了otherValue表明key没有找到对应的value
+                }else {
+                    //不相等表明，找到的翻译文本localized就是和key相等
+                    return localized
+                }
             }
         }
 
